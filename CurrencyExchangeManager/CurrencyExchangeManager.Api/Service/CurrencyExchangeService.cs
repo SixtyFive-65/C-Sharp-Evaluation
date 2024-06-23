@@ -1,4 +1,5 @@
-﻿using CurrencyExchangeManager.Api.Database;
+﻿using Azure;
+using CurrencyExchangeManager.Api.Database;
 using CurrencyExchangeManager.Api.Models;
 using CurrencyExchangeManager.Api.Repository;
 using Models;
@@ -17,9 +18,9 @@ namespace CurrencyExchangeManager.Api.Service
         private string ApiUrl { get; set; }
 
         public CurrencyExchangeService(
-            IConfiguration configuration,
-            CurrencyConversionDbContext currencyConversionDbContext,
-            ICurrencyRepository currencyRepository
+            IConfiguration configuration = null,
+            CurrencyConversionDbContext currencyConversionDbContext = null,
+            ICurrencyRepository currencyRepository = null
             )
         {
             RedisConnectionString = configuration?.GetSection("RedisServer")?.Value?.ToString();
@@ -37,7 +38,7 @@ namespace CurrencyExchangeManager.Api.Service
                 {
                     IDatabase cacheData = redisConnector.GetDatabase();
 
-                    string key = $"{@base}-{target}";
+                    string key = $"Rates";
 
                     string value = "Hello, Redis with Interface!";
 
@@ -53,9 +54,11 @@ namespace CurrencyExchangeManager.Api.Service
 
                         TimeSpan expiry = TimeSpan.FromMinutes(15);
 
+                        conversionAmount = DoConversion(@base, target, amount, data.Rates);  // we should store this rate
+                      
                         cacheData.StringSet(key, value, expiry);
 
-                        conversionAmount = DoConversion(@base, target, amount, data.Rates);
+                        bool saveRates = await SaveRates(data.Rates);
                     }
                 }
             }
@@ -96,31 +99,49 @@ namespace CurrencyExchangeManager.Api.Service
         {
             var responsData = new CurrencyApiResponseModel();
 
-            using (var client = new HttpClient())
+            try
             {
-                var response = await client.GetAsync(ApiUrl);
-
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient())
                 {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(jsonResponse);
+                    var response = await client.GetAsync(ApiUrl);
 
-                    responsData = JsonSerializer.Deserialize<CurrencyApiResponseModel>(@jsonResponse);
-                }
-                else
-                {
-                    Log.Error($"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}");
-                    Console.WriteLine($"Failed to retrieve data. Status code: {response.StatusCode}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine(jsonResponse);
 
-                    return new CurrencyApiResponseModel() { ResponseMessage = $"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}" };
+                        responsData = JsonSerializer.Deserialize<CurrencyApiResponseModel>(@jsonResponse);
+                    }
+                    else
+                    {
+                        Log.Error($"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}");
+                        Console.WriteLine($"Failed to retrieve data. Status code: {response.StatusCode}");
+
+                        return new CurrencyApiResponseModel() { ResponseMessage = $"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}" };
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                Log.Error($"Failed to retrieve data {e.Message}");
 
-            return responsData ?? new CurrencyApiResponseModel();
+                responsData.ResponseMessage = e.Message;
+
+                return responsData;
+            }
+
+            return responsData;
         }
         public async Task<IEnumerable<CurrencyExchangeHIstoryResponseModel>> ConversionHistory()
         {
             var conversionHistory = await currencyRepository.GetCurrencyHistoryAsync();
+
+            return conversionHistory;
+        }
+
+        public async Task<bool> SaveRates(Dictionary<string, decimal> rates)
+        {
+            var conversionHistory = await currencyRepository.SaveRatesAsync(rates);
 
             return conversionHistory;
         }

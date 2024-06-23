@@ -7,6 +7,6 @@ namespace CurrencyExchangeManager.Api.Repository
     {
         Task<IEnumerable<CurrencyExchangeHIstoryResponseModel>> GetCurrencyHistoryAsync();
 
-        Task<CurrencyHistory> SaveCurremcy(CurrencyHistory model);
+        Task<bool> SaveRatesAsync(Dictionary<string, decimal> rates);
     }
 }

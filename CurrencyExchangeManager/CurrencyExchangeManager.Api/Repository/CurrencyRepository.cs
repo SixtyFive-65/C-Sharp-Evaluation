@@ -1,4 +1,5 @@
-﻿using CurrencyExchangeManager.Api.Database;
+﻿using Azure;
+using CurrencyExchangeManager.Api.Database;
 using CurrencyExchangeManager.Api.Database.DomainModels;
 using Microsoft.EntityFrameworkCore;
 using Models;
@@ -45,9 +46,37 @@ namespace CurrencyExchangeManager.Api.Repository
             return response;
         }
 
-        public Task<CurrencyHistory> SaveCurremcy(CurrencyHistory model)
+        public async Task<bool> SaveRatesAsync(Dictionary<string, decimal> rates)
         {
-            throw new NotImplementedException();
+            int saveResult = 0;
+            try
+            {
+                var saveCurrencyModel = rates.Select(p => new CurrencyHistory()
+                {
+                    Base = "Any",
+                    Target = p.Key,
+                    Amount = p.Value,
+                    EditedDateTime = DateTime.UtcNow,
+
+                }).ToList();
+
+                await currencyConversionDbContext.AddRangeAsync(saveCurrencyModel);
+
+                saveResult = await currencyConversionDbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"{ex?.InnerException?.Message}");
+
+                throw ex;
+            }
+
+            if(saveResult > 0)
+            {
+                return true;
+            }
+
+           return false;
         }
     }
 }

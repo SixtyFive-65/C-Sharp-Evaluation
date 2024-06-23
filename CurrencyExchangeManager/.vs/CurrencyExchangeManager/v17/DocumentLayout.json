@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\repository\\currencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\repository\\currencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\service\\currencyexchangeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\service\\currencyexchangeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\database\\domainmodels\\currencyhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\database\\domainmodels\\currencyhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EA633BB-5524-4E87-AD4B-4CBBF40DAEEA}|CurrencyExchange.Tests\\CurrencyExchange.Tests.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchange.tests\\currencyexchangetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,18 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\controllers\\currencyexchangecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\controllers\\currencyexchangecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\repository\\icurrencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\repository\\icurrencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\repository\\currencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\repository\\currencyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|c:\\users\\admin\\desktop\\c-sharp-evaluation\\currencyexchangemanager\\currencyexchangemanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B55F8061-616D-4578-95EA-6E1B81C7AAA9}|CurrencyExchangeManager.Api\\CurrencyExchangeManager.Api.csproj|solutionrelative:currencyexchangemanager.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,72 +34,59 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICurrencyRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Repository\\ICurrencyRepository.cs",
-              "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Repository\\ICurrencyRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Repository\\ICurrencyRepository.cs",
-              "RelativeToolTip": "CurrencyExchangeManager.Api\\Repository\\ICurrencyRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAlAAAA",
+              "DocumentIndex": 2,
+              "Title": "CurrencyHistory.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Database\\DomainModels\\CurrencyHistory.cs",
+              "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Database\\DomainModels\\CurrencyHistory.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Database\\DomainModels\\CurrencyHistory.cs",
+              "RelativeToolTip": "CurrencyExchangeManager.Api\\Database\\DomainModels\\CurrencyHistory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:35:20.386Z",
+              "WhenOpened": "2024-06-23T22:03:48.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Program.cs",
-              "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Program.cs",
-              "RelativeToolTip": "CurrencyExchangeManager.Api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:28:12.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "CurrencyRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Repository\\CurrencyRepository.cs",
               "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Repository\\CurrencyRepository.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Repository\\CurrencyRepository.cs",
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Repository\\CurrencyRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAABkAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAAEYAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:21:25.809Z",
+              "WhenOpened": "2024-06-23T22:03:29.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CurrencyExchangeTests.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
               "RelativeDocumentMoniker": "CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
               "RelativeToolTip": "CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:15:54.805Z",
+              "WhenOpened": "2024-06-23T21:44:23.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\appsettings.json",
-              "RelativeToolTip": "CurrencyExchangeManager.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-23T21:09:22.611Z",
+              "DocumentIndex": 1,
+              "Title": "CurrencyExchangeService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Service\\CurrencyExchangeService.cs",
+              "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Service\\CurrencyExchangeService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Service\\CurrencyExchangeService.cs",
+              "RelativeToolTip": "CurrencyExchangeManager.Api\\Service\\CurrencyExchangeService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADMAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T21:39:18.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CurrencyExchangeController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchangeManager.Api\\Controllers\\CurrencyExchangeController.cs",
               "RelativeDocumentMoniker": "CurrencyExchangeManager.Api\\Controllers\\CurrencyExchangeController.cs",
@@ -111,8 +94,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Controllers\\CurrencyExchangeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T14:02:25.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T14:02:25.967Z"
             }
           ]
         }
