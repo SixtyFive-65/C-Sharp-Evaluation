@@ -1,6 +1,6 @@
 ﻿using Models;
 
-namespace Service
+namespace CurrencyExchangeManager.Api.Service
 {
     public interface ICurrencyExchangeService
     {

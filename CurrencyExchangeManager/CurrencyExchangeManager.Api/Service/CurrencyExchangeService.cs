@@ -1,13 +1,12 @@
 ﻿using CurrencyExchangeManager.Api.Database;
 using CurrencyExchangeManager.Api.Models;
 using CurrencyExchangeManager.Api.Repository;
-using Microsoft.EntityFrameworkCore;
 using Models;
 using Serilog;
 using StackExchange.Redis;
 using System.Text.Json;
 
-namespace Service
+namespace CurrencyExchangeManager.Api.Service
 {
     public class CurrencyExchangeService : ICurrencyExchangeService
     {

@@ -1,8 +1,8 @@
 using CurrencyExchangeManager.Api.Database;
 using Microsoft.EntityFrameworkCore;
-using Service;
 using Serilog;
 using CurrencyExchangeManager.Api.Repository;
+using CurrencyExchangeManager.Api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
+using CurrencyExchangeManager.Api.Service;
 using Models;
 using Moq;
-using Service;
 
 namespace CurrencyExchange.Tests
 {

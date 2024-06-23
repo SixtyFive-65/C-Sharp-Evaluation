@@ -1,6 +1,6 @@
+using CurrencyExchangeManager.Api.Service;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using Service;
 using Serilog;
 
 
