@@ -28,7 +28,7 @@ namespace CurrencyExchangeManager.Api.Repository
                     response = data.Select(p => new CurrencyExchangeHIstoryResponseModel
                     {
                         Id = p.Id,
-                        Target = p.ExchangeRate,
+                        ExchangeRate = p.ExchangeRate,
                         Amount = p.Amount
                     }).ToList();
                 }

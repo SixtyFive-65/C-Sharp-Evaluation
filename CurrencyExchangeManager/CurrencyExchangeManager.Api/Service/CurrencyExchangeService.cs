@@ -5,7 +5,9 @@ using CurrencyExchangeManager.Api.Repository;
 using Models;
 using Serilog;
 using StackExchange.Redis;
+using System.Collections.Generic;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CurrencyExchangeManager.Api.Service
 {
@@ -38,15 +40,13 @@ namespace CurrencyExchangeManager.Api.Service
                 {
                     IDatabase cacheData = redisConnector.GetDatabase();
 
-                    string key = $"Rates";
-
-                    string value = "Hello, Redis with Interface!";
+                    string key = $"CurrencyRates";
 
                     string retrievedValue = cacheData.StringGet(key);
 
                     if (!string.IsNullOrEmpty(retrievedValue))
                     {
-                        conversionAmount = DoConversion(@base, target, amount, new Dictionary<string, decimal>());
+                        conversionAmount = DoConversion(@base, target, amount, JsonSerializer.Deserialize<Dictionary<string,decimal>>(retrievedValue));
                     }
                     else
                     {
@@ -55,8 +55,11 @@ namespace CurrencyExchangeManager.Api.Service
                         TimeSpan expiry = TimeSpan.FromMinutes(15);
 
                         conversionAmount = DoConversion(@base, target, amount, data.Rates);  // we should store this rate
-                      
-                        cacheData.StringSet(key, value, expiry);
+
+                        string json = JsonSerializer.Serialize(data.Rates);
+
+                        cacheData.StringSet(key, json, expiry);
+
 
                         bool saveRates = await SaveRates(data.Rates);
                     }
