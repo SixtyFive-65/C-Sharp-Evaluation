@@ -1,0 +1,7 @@
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_CurrencyExchange.Tests
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.AssemblyInfo.cs
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\C-Sharp-Evaluation\CurrencyExchangeManager\CurrencyExchange.Tests\obj\Debug\net8.0\CurrencyExchange.Tests.sourcelink.json

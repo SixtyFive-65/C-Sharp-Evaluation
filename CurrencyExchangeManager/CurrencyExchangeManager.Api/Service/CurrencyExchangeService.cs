@@ -1,32 +1,40 @@
 ﻿using CurrencyExchangeManager.Api.Database;
 using CurrencyExchangeManager.Api.Models;
+using CurrencyExchangeManager.Api.Repository;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Serilog;
 using StackExchange.Redis;
 using System.Text.Json;
 
-namespace Repository
+namespace Service
 {
-    public class CurrencyExchangeRepository : ICurrencyExchangeRepository
+    public class CurrencyExchangeService : ICurrencyExchangeService
     {
-        private readonly CurrencyConversionDbContext currencyConversionDbContext;
+        private readonly ICurrencyRepository currencyRepository;
 
-        private string redisConnectionString { get; set; }
+        private string RedisConnectionString { get; set; }
 
-        public CurrencyExchangeRepository(IConfiguration configuration, CurrencyConversionDbContext currencyConversionDbContext)
+        private string ApiUrl { get; set; }
+
+        public CurrencyExchangeService(
+            IConfiguration configuration,
+            CurrencyConversionDbContext currencyConversionDbContext,
+            ICurrencyRepository currencyRepository
+            )
         {
-            redisConnectionString = configuration?.GetSection("RedisServer")?.Value?.ToString();
-            this.currencyConversionDbContext = currencyConversionDbContext;
+            RedisConnectionString = configuration?.GetSection("RedisServer")?.Value?.ToString();
+            ApiUrl = configuration?.GetSection("CurrencyApiUrl")?.Value?.ToString();
+            this.currencyRepository = currencyRepository;
         }
 
         public async Task<CurrencyExchangeResponseModel> Convert(string @base, string target, decimal amount)
         {
-            var conversionAmount = 0.00m;
+            var conversionAmount = new CurrencyExchangeResponseModel();
 
             try
             {
-                using (var redisConnector = new RedisHelper(redisConnectionString))
+                using (var redisConnector = new RedisHelper(RedisConnectionString))
                 {
                     IDatabase cacheData = redisConnector.GetDatabase();
 
@@ -38,7 +46,7 @@ namespace Repository
 
                     if (!string.IsNullOrEmpty(retrievedValue))
                     {
-                        conversionAmount =  DoConversion(@base, target, amount, new Dictionary<string, decimal>() );
+                        conversionAmount = DoConversion(@base, target, amount, new Dictionary<string, decimal>());
                     }
                     else
                     {
@@ -48,10 +56,8 @@ namespace Repository
 
                         cacheData.StringSet(key, value, expiry);
 
-                        conversionAmount =  DoConversion(@base, target, amount, data.Rates );
+                        conversionAmount = DoConversion(@base, target, amount, data.Rates);
                     }
-
-                    Console.WriteLine($"Value retrieved from Redis: {retrievedValue}");
                 }
             }
             catch (Exception ex)
@@ -61,21 +67,24 @@ namespace Repository
                 return new CurrencyExchangeResponseModel { ConvertedAmount = 0, ResponseMessage = ex.Message };
             }
 
-            return new CurrencyExchangeResponseModel() { ConvertedAmount = conversionAmount, ResponseMessage = "Success" };
+            return conversionAmount;
         }
 
-        private decimal DoConversion(string baseCurrency, string targetCurrency, decimal amount, Dictionary<string,decimal> rates)
+        private CurrencyExchangeResponseModel DoConversion(string baseCurrency, string targetCurrency, decimal amount, Dictionary<string, decimal> rates)
         {
-            decimal amountInTargetCurrency = 0.00m;
+            var amountInTargetCurrency = new CurrencyExchangeResponseModel();
 
             if (rates.TryGetValue(targetCurrency, out decimal exchangeRate))
             {
-                amountInTargetCurrency = amount * exchangeRate;
+                amountInTargetCurrency.ConvertedAmount = amount * exchangeRate;
+                amountInTargetCurrency.ResponseMessage = "Success";
 
                 Console.WriteLine($"Converted {amount} {baseCurrency} to {targetCurrency}: {amountInTargetCurrency}");
             }
             else
             {
+                amountInTargetCurrency.ResponseMessage = $"Exchange rate for {targetCurrency} not found.";
+
                 Log.Warning($"Cannot convert {amount} from {baseCurrency} to {targetCurrency}");
 
                 Console.WriteLine($"Exchange rate for {targetCurrency} not found.");
@@ -90,7 +99,7 @@ namespace Repository
 
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync("https://openexchangerates.org/api/latest.json?app_id=b752eef05538469488b72c19acbfa918");
+                var response = await client.GetAsync(ApiUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -101,10 +110,10 @@ namespace Repository
                 }
                 else
                 {
-                    Log.Error($"Erro calling {response.RequestMessage} - {response.StatusCode}");
+                    Log.Error($"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}");
                     Console.WriteLine($"Failed to retrieve data. Status code: {response.StatusCode}");
 
-                    return new CurrencyApiResponseModel() { ResponseMessage = $"Failed to call {response.RequestMessage} - {response.StatusCode}" };
+                    return new CurrencyApiResponseModel() { ResponseMessage = $"Failed to retrieve data {response.RequestMessage} - {response.StatusCode}" };
                 }
             }
 
@@ -112,33 +121,9 @@ namespace Repository
         }
         public async Task<IEnumerable<CurrencyExchangeHIstoryResponseModel>> ConversionHistory()
         {
-            var response = new List<CurrencyExchangeHIstoryResponseModel>();
+            var conversionHistory = await currencyRepository.GetCurrencyHistoryAsync();
 
-            try
-            {
-                var data = await currencyConversionDbContext.CurrencyHistory.ToListAsync();
-
-                if (data != null)
-                {
-                    response = data.Select(p => new CurrencyExchangeHIstoryResponseModel
-                    {
-                        Id = p.Id,
-                        Base = p.Base,
-                        Target = p.Target,
-                        Amount = p.Amount
-                    }).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"{ex?.InnerException?.Message}");
-
-                response.Add(new CurrencyExchangeHIstoryResponseModel { ResponseMessage = ex.Message });
-
-                return response;
-            }
-
-            return response;
+            return conversionHistory;
         }
     }
 }

@@ -1,7 +1,8 @@
 using CurrencyExchangeManager.Api.Database;
 using Microsoft.EntityFrameworkCore;
-using Repository;
+using Service;
 using Serilog;
+using CurrencyExchangeManager.Api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +29,10 @@ builder.Services.AddDbContext<CurrencyConversionDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICurrencyExchangeRepository, CurrencyExchangeRepository>();  
+builder.Services.AddScoped<ICurrencyExchangeService, CurrencyExchangeService>();
+
+builder.Services.AddScoped<ICurrencyRepository, CurrencyRepository>();
+
 
 var app = builder.Build();
 

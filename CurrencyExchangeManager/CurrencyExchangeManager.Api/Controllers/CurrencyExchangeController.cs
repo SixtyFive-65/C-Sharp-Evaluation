@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using Repository;
+using Service;
 using Serilog;
 
 
@@ -10,9 +10,9 @@ namespace CurrencyExchangeManager.Api.Controllers
     [Route("api/[controller]/")]
     public class CurrencyExchangeController : ControllerBase
     {
-        private readonly ICurrencyExchangeRepository currencyExchangeRepository;
+        private readonly ICurrencyExchangeService currencyExchangeRepository;
 
-        public CurrencyExchangeController(ICurrencyExchangeRepository currencyExchangeRepository)
+        public CurrencyExchangeController(ICurrencyExchangeService currencyExchangeRepository)
         {
             this.currencyExchangeRepository = currencyExchangeRepository;
         }

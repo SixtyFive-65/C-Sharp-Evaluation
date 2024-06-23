@@ -1,8 +1,8 @@
 ﻿using Models;
 
-namespace Repository
+namespace Service
 {
-    public interface ICurrencyExchangeRepository
+    public interface ICurrencyExchangeService
     {
         Task<CurrencyExchangeResponseModel> Convert(string @base, string target, decimal amount);
         Task<IEnumerable<CurrencyExchangeHIstoryResponseModel>> ConversionHistory();
