@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CurrencyExchangeManager.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f9baad451335f11e1ae400ebb0ebf071bbfdd11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cb2ff52961624b1bcdfb795649f8fcf2719d4a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("CurrencyExchangeManager.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CurrencyExchangeManager.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

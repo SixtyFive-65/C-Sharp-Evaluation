@@ -3,6 +3,7 @@ using Models;
 using Repository;
 using Serilog;
 
+
 namespace CurrencyExchangeManager.Api.Controllers
 {
     [ApiController]
@@ -18,13 +19,13 @@ namespace CurrencyExchangeManager.Api.Controllers
 
         [HttpGet]
         [Route("Convert")]
-        public async Task<IActionResult> Convert(string @base, string target, decimal amount)
+        public async Task<IActionResult> Convert([FromQuery] CurrencyExchangeRequestModel request)
         {
             var kk = new CurrencyExchangeResponseModel();
 
             try
             {
-                kk = await currencyExchangeRepository.Convert(@base, target, amount);
+                kk = await currencyExchangeRepository.Convert(request.Base, request.Target, request.Amount);
             }
             catch (Exception ex)
             {
@@ -38,9 +39,11 @@ namespace CurrencyExchangeManager.Api.Controllers
 
         [HttpGet]
         [Route("ConversionHistory")]
-        public IActionResult ConversionHistory()
+        public async Task<IActionResult> ConversionHistory()
         {
-            return Ok();
+            var history = await currencyExchangeRepository.ConversionHistory();
+
+            return Ok(history);
         }
     }
 }
