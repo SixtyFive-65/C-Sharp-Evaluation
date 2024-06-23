@@ -4,6 +4,7 @@ using CurrencyExchangeManager.Api.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurrencyExchangeManager.Api.Migrations
 {
     [DbContext(typeof(CurrencyConversionDbContext))]
-    partial class CurrencyConversionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240623221839_removeExtraColumn")]
+    partial class removeExtraColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

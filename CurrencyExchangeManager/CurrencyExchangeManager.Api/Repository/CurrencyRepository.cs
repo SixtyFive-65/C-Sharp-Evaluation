@@ -28,8 +28,7 @@ namespace CurrencyExchangeManager.Api.Repository
                     response = data.Select(p => new CurrencyExchangeHIstoryResponseModel
                     {
                         Id = p.Id,
-                        Base = p.Base,
-                        Target = p.Target,
+                        Target = p.ExchangeRate,
                         Amount = p.Amount
                     }).ToList();
                 }
@@ -53,8 +52,7 @@ namespace CurrencyExchangeManager.Api.Repository
             {
                 var saveCurrencyModel = rates.Select(p => new CurrencyHistory()
                 {
-                    Base = "Any",
-                    Target = p.Key,
+                    ExchangeRate = p.Key,
                     Amount = p.Value,
                     EditedDateTime = DateTime.UtcNow,
 
