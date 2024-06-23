@@ -2,6 +2,7 @@
 {
     public class CurrencyExchangeResponseModel
     {
-        public decimal ExchangeRate {  get; set; }
+        public decimal ConvertedAmount {  get; set; }
+        public string ResponseMessage {  get; set; }
     }
 }

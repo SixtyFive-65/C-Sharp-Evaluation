@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using Serilog;
 using StackExchange.Redis;
-using System;
 using System.Text.Json;
 
 namespace Repository
@@ -31,7 +30,7 @@ namespace Repository
                 {
                     IDatabase cacheData = redisConnector.GetDatabase();
 
-                    string key = $"{@base}-{target}-{amount}";
+                    string key = $"{@base}-{target}";
 
                     string value = "Hello, Redis with Interface!";
 
@@ -39,7 +38,7 @@ namespace Repository
 
                     if (!string.IsNullOrEmpty(retrievedValue))
                     {
-                        new CurrencyExchangeResponseModel() { ExchangeRate = 10 };
+                        conversionAmount =  DoConversion(@base, target, amount, new Dictionary<string, decimal>() );
                     }
                     else
                     {
@@ -49,26 +48,40 @@ namespace Repository
 
                         cacheData.StringSet(key, value, expiry);
 
-                        return new CurrencyExchangeResponseModel() { ExchangeRate = 25 };
+                        conversionAmount =  DoConversion(@base, target, amount, data.Rates );
                     }
 
                     Console.WriteLine($"Value retrieved from Redis: {retrievedValue}");
                 }
-
-                conversionAmount = await DoConversion(@base, target, amount);
             }
             catch (Exception ex)
             {
                 Log.Error($"{ex?.InnerException?.Message}");
+
+                return new CurrencyExchangeResponseModel { ConvertedAmount = 0, ResponseMessage = ex.Message };
             }
 
-            return new CurrencyExchangeResponseModel() { ExchangeRate = conversionAmount };
+            return new CurrencyExchangeResponseModel() { ConvertedAmount = conversionAmount, ResponseMessage = "Success" };
         }
 
-        private async Task<decimal> DoConversion(string baseCurrency, string targetCurrency, decimal amount)
+        private decimal DoConversion(string baseCurrency, string targetCurrency, decimal amount, Dictionary<string,decimal> rates)
         {
+            decimal amountInTargetCurrency = 0.00m;
 
-            return default;
+            if (rates.TryGetValue(targetCurrency, out decimal exchangeRate))
+            {
+                amountInTargetCurrency = amount * exchangeRate;
+
+                Console.WriteLine($"Converted {amount} {baseCurrency} to {targetCurrency}: {amountInTargetCurrency}");
+            }
+            else
+            {
+                Log.Warning($"Cannot convert {amount} from {baseCurrency} to {targetCurrency}");
+
+                Console.WriteLine($"Exchange rate for {targetCurrency} not found.");
+            }
+
+            return amountInTargetCurrency;
         }
 
         private async Task<CurrencyApiResponseModel> CallRatesApi()
@@ -90,6 +103,8 @@ namespace Repository
                 {
                     Log.Error($"Erro calling {response.RequestMessage} - {response.StatusCode}");
                     Console.WriteLine($"Failed to retrieve data. Status code: {response.StatusCode}");
+
+                    return new CurrencyApiResponseModel() { ResponseMessage = $"Failed to call {response.RequestMessage} - {response.StatusCode}" };
                 }
             }
 
@@ -117,6 +132,8 @@ namespace Repository
             catch (Exception ex)
             {
                 Log.Error($"{ex?.InnerException?.Message}");
+
+                response.Add(new CurrencyExchangeHIstoryResponseModel { ResponseMessage = ex.Message });
 
                 return response;
             }

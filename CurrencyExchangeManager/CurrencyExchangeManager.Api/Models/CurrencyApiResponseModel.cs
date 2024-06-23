@@ -18,5 +18,7 @@ namespace CurrencyExchangeManager.Api.Models
 
         [JsonPropertyName("rates")]
         public Dictionary<string, decimal> Rates { get; set; }
+
+        public  string ResponseMessage { get; set; }
     }
 }

@@ -21,11 +21,11 @@ namespace CurrencyExchangeManager.Api.Controllers
         [Route("Convert")]
         public async Task<IActionResult> Convert([FromQuery] CurrencyExchangeRequestModel request)
         {
-            var kk = new CurrencyExchangeResponseModel();
+            var convertCurrency = new CurrencyExchangeResponseModel();
 
             try
             {
-                kk = await currencyExchangeRepository.Convert(request.Base, request.Target, request.Amount);
+                convertCurrency = await currencyExchangeRepository.Convert(request.Base, request.Target, request.Amount);
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace CurrencyExchangeManager.Api.Controllers
                 return BadRequest(ex);
             }
 
-            return Ok(kk);
+            return Ok(convertCurrency);
         }
 
         [HttpGet]
