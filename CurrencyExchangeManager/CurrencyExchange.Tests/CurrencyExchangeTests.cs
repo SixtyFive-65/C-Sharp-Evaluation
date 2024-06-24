@@ -51,7 +51,7 @@ namespace CurrencyExchange.Tests
             {
                 var cachedValue = JsonSerializer.Serialize(CachedRates);
 
-                 databaseMock.Setup(d => d.StringGet("CurrencyRates")).Returns(new RedisValue(cachedValue));
+                // databaseMock.Setup(d => d.StringGet("CurrencyRates")).Returns(new RedisValue(cachedValue));
 
                 var result = await currencyExchangeService.Convert(BaseCurrency, TargetCurrency, Amount);
 
