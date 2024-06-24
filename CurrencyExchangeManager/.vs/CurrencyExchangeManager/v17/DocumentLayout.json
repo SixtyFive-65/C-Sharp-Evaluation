@@ -46,8 +46,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Helpers\\RedisHelper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T06:58:07.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T06:58:07.288Z"
             },
             {
               "$type": "Document",
@@ -57,7 +56,7 @@
               "RelativeDocumentMoniker": "CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\C-Sharp-Evaluation\\CurrencyExchangeManager\\CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
               "RelativeToolTip": "CurrencyExchange.Tests\\CurrencyExchangeTests.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAAEIAAAAlAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADUAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T06:56:00.969Z",
               "EditorCaption": ""
@@ -72,8 +71,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Models\\CurrencyExchangeHIstoryResponseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T22:20:57.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T22:20:57.674Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Repository\\CurrencyRepository.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAAAB4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T22:03:29.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T22:03:29.933Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Service\\CurrencyExchangeService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:39:18.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T21:39:18.362Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "CurrencyExchangeManager.Api\\Controllers\\CurrencyExchangeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T14:02:25.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T14:02:25.967Z"
             }
           ]
         }
