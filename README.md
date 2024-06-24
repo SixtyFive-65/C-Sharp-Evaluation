@@ -2,6 +2,8 @@
 
 ## Installation
 
+Use Visual Studio to clone the below repo.
+
 1. Clone the repository:
 
    git clone https://github.com/SixtyFive-65/C-Sharp-Evaluation.git
