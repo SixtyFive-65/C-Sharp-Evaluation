@@ -1,13 +1,10 @@
-﻿using Azure;
-using CurrencyExchangeManager.Api.Database;
+﻿using CurrencyExchangeManager.Api.Database;
 using CurrencyExchangeManager.Api.Models;
 using CurrencyExchangeManager.Api.Repository;
 using Models;
 using Serilog;
 using StackExchange.Redis;
-using System.Collections.Generic;
 using System.Text.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CurrencyExchangeManager.Api.Service
 {
@@ -22,7 +19,8 @@ namespace CurrencyExchangeManager.Api.Service
         public CurrencyExchangeService(
             IConfiguration configuration = null,
             CurrencyConversionDbContext currencyConversionDbContext = null,
-            ICurrencyRepository currencyRepository = null
+            ICurrencyRepository currencyRepository = null,
+            IRedisHelper redisHelper = null
             )
         {
             RedisConnectionString = configuration?.GetSection("RedisServer")?.Value?.ToString();
@@ -98,7 +96,7 @@ namespace CurrencyExchangeManager.Api.Service
             return amountInTargetCurrency;
         }
 
-        private async Task<CurrencyApiResponseModel> CallRatesApi()
+        public async Task<CurrencyApiResponseModel> CallRatesApi()
         {
             var responsData = new CurrencyApiResponseModel();
 

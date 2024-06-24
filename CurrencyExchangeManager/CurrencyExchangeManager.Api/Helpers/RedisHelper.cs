@@ -1,7 +1,14 @@
-﻿using Serilog;
+﻿using Models;
+using Serilog;
 using StackExchange.Redis;
 
+public interface IRedisHelper
+{
+    IDatabase GetDatabase();
+}
+
 public class RedisHelper : IDisposable
+
 {
     private readonly string redisConnectionString = "localhost:6379"; // Replace with your Redis server details
     private ConnectionMultiplexer redis;
